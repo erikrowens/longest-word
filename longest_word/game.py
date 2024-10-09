@@ -3,6 +3,7 @@
 
 import random
 import string
+import requests
 
 class Game:
     def __init__(self) -> list:
@@ -16,8 +17,10 @@ class Game:
             return False
         letters = self.grid.copy() # Consume letters from the grid
         for letter in word:
-            if letter in letters:
-                letters.remove(letter)
-            else:
+            if letter not in letters:
                 return False
-        return True
+            letters.remove(letter)
+
+        response = requests.get(f"https://dictionary.lewagon.com/{word}")
+        json_response = response.json()
+        return json_response['found']
