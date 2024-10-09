@@ -9,6 +9,7 @@ readme = "README.md"
 python = "^3.8"
 pytest = "^8.3.3"
 pylint = "*"
+requests = "^2.32.3"
 
 
 [build-system]
