@@ -10,6 +10,7 @@ python = "^3.8"
 pytest = "^8.3.3"
 pylint = "*"
 requests = "^2.32.3"
+flask = "^3.0.3"
 
 
 [build-system]
