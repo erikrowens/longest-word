@@ -17,8 +17,10 @@ class Game:
             return False
         letters = self.grid.copy() # Consume letters from the grid
         for letter in word:
-            if letter in letters:
-                letters.remove(letter)
+            if letter not in letters:
+                return False
+            letters.remove(letter)
+
         response = requests.get(f"https://dictionary.lewagon.com/{word}")
         json_response = response.json()
         return json_response['found']
